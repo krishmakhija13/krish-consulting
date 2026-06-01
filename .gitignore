@@ -1,0 +1,18 @@
+# Secrets — never commit these
+.env
+.env.local
+.env.*.local
+chatbot-backend/.env
+chatbot-backend/.env.local
+
+# Dependencies
+node_modules/
+chatbot-backend/node_modules/
+
+# Vercel
+.vercel/
+chatbot-backend/.vercel/
+
+# OS
+.DS_Store
+Thumbs.db

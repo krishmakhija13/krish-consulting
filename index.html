@@ -243,40 +243,6 @@ footer{background:var(--ink);color:var(--paper);padding:3rem 2rem 2rem;border-to
 .footer-social{display:flex;gap:8px}
 .footer-social a{width:30px;height:30px;border:1px solid rgba(250,249,247,.15);display:flex;align-items:center;justify-content:center;color:rgba(250,249,247,.4);font-size:14px;text-decoration:none;transition:all .2s}
 .footer-social a:hover{border-color:var(--accent);color:var(--paper)}
-/* CHAT */
-#chat-widget{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
-.chat-bubble{width:52px;height:52px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(200,57,43,.35);border:none;color:#fff;font-size:22px;position:relative;transition:transform .2s}
-.chat-bubble:hover{transform:scale(1.08)}
-.chat-notif{position:absolute;top:-2px;right:-2px;width:13px;height:13px;background:var(--teal);border-radius:50%;border:2px solid var(--paper);display:none}
-.chat-panel{display:none;width:320px;background:var(--paper);border:2px solid var(--ink);flex-direction:column;max-height:480px;box-shadow:0 16px 48px rgba(0,0,0,.15)}
-[data-theme="dark"] .chat-panel{border-color:var(--border2)}
-.chat-panel.open{display:flex}
-.chat-hd{background:var(--ink);padding:.9rem 1.1rem;display:flex;align-items:center;justify-content:space-between;color:var(--paper)}
-[data-theme="dark"] .chat-hd{background:var(--paper4)}
-.chat-hd-info{display:flex;align-items:center;gap:9px}
-.chat-av{width:28px;height:28px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:900;font-size:12px;color:#fff}
-.chat-hd-info .nn{font-size:13px;font-weight:600;font-family:var(--font-head)}
-.chat-hd-info .ss{font-size:10px;opacity:.65;font-family:var(--font-mono)}
-.chat-x{background:transparent;border:none;color:var(--paper);cursor:pointer;font-size:16px;opacity:.7}
-.chat-x:hover{opacity:1}
-.chat-msgs{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:9px;min-height:200px;max-height:280px}
-.cmsg{padding:9px 12px;font-size:13px;line-height:1.5;max-width:88%}
-.cmsg.bot{background:var(--paper2);border:1px solid var(--border);color:var(--ink);align-self:flex-start}
-.cmsg.usr{background:var(--accent);color:#fff;align-self:flex-end}
-.chat-sugg{padding:0 .9rem .7rem;display:flex;gap:5px;flex-wrap:wrap}
-.csugg{font-size:11px;padding:4px 10px;background:var(--paper2);border:1px solid var(--border2);color:var(--ink3);cursor:pointer;transition:border-color .2s;font-family:var(--font-mono)}
-.csugg:hover{border-color:var(--accent);color:var(--accent)}
-.chat-inp-row{display:flex;gap:0;padding:.7rem .9rem;border-top:1px solid var(--border)}
-.chat-inp{flex:1;background:var(--paper2);border:1px solid var(--border);border-right:none;color:var(--ink);font-family:var(--font-body);font-size:13px;padding:8px 11px;outline:none}
-.chat-inp:focus{border-color:var(--accent)}
-.chat-send{width:36px;background:var(--accent);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.chat-send:hover{opacity:.88}
-.chat-pw{text-align:center;font-size:10px;color:var(--ink4);padding:5px;border-top:1px solid var(--border);font-family:var(--font-mono)}
-.typing{display:flex;gap:4px;align-items:center}
-.typing span{width:5px;height:5px;background:var(--ink4);border-radius:50%;animation:bounce 1.2s ease-in-out infinite}
-.typing span:nth-child(2){animation-delay:.2s}
-.typing span:nth-child(3){animation-delay:.4s}
-@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
 /* MISC */
 .fade-up{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .fade-up.vis{opacity:1;transform:translateY(0)}
@@ -627,32 +593,13 @@ footer{background:var(--ink);color:var(--paper);padding:3rem 2rem 2rem;border-to
   </div>
 </footer>
 
-<!-- CHAT WIDGET -->
-<div id="chat-widget">
-  <div class="chat-panel" id="chatPanel">
-    <div class="chat-hd">
-      <div class="chat-hd-info">
-        <div class="chat-av">K</div>
-        <div><div class="nn">Krish's Assistant</div><div class="ss">🟢 Online · AI-Powered</div></div>
-      </div>
-      <button class="chat-x" onclick="toggleChat()">✕</button>
-    </div>
-    <div class="chat-msgs" id="chatMsgs">
-      <div class="cmsg bot">👋 Hi! I'm Krish's AI assistant. Ask me about services, pricing, or how to get started.</div>
-    </div>
-    <div class="chat-sugg" id="chatSugg">
-      <button class="csugg" onclick="sndSugg('What services do you offer?')">Services?</button>
-      <button class="csugg" onclick="sndSugg('What are your prices?')">Pricing?</button>
-      <button class="csugg" onclick="sndSugg('How do I get started?')">Get started?</button>
-    </div>
-    <div class="chat-inp-row">
-      <input type="text" class="chat-inp" id="chatInp" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sndChat()">
-      <button class="chat-send" onclick="sndChat()">→</button>
-    </div>
-    <div class="chat-pw">Powered by Claude AI · Krish Consulting</div>
-  </div>
-  <button class="chat-bubble" onclick="toggleChat()">💬<span class="chat-notif" id="chatNotif"></span></button>
-</div>
+<!-- AI CHAT WIDGET — powered by chatbot.js -->
+<script>
+  // Set your deployed Vercel backend URL here, e.g.:
+  // window.CHATBOT_BACKEND_URL = 'https://krish-chatbot.vercel.app';
+  window.CHATBOT_BACKEND_URL = 'https://krish-chatbot-gules.vercel.app';
+</script>
+<script src="chatbot.js" defer></script>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
@@ -695,36 +642,6 @@ function subNL(){
   document.getElementById('nlForm').style.display='none';
   document.getElementById('nlOk').style.display='block';
 }
-// CHAT
-let chatOpen=false;
-function toggleChat(){
-  chatOpen=!chatOpen;
-  document.getElementById('chatPanel').classList.toggle('open',chatOpen);
-  document.getElementById('chatNotif').style.display=chatOpen?'none':'none';
-}
-const botR={
-  'service':"I offer 6 services: Data Analysis, Dashboards, Automation, AI Tools, Market Research, and Strategy Consulting. Which interests you most?",
-  'price':"Pricing starts at ₹15K (Starter Sprint), ₹45K (Growth Project), or ₹30K/month (Retainer). Book a free call for a custom quote.",
-  'start':"Easy — book a free 30-min discovery call via the 'Book a Call' section above. No commitment needed.",
-  'data':"I work with Python, SQL, Power BI, Tableau, and Excel to turn raw data into actionable dashboards and reports.",
-  'ai':"I build custom AI tools using OpenAI and Claude — chatbots, document processors, workflow automation. Purpose-built for your business.",
-};
-function addMsg(txt,role){
-  const m=document.getElementById('chatMsgs'),d=document.createElement('div');
-  d.className='cmsg '+role;d.textContent=txt;m.appendChild(d);m.scrollTop=m.scrollHeight;
-}
-function sndSugg(txt){document.getElementById('chatSugg').style.display='none';addMsg(txt,'usr');setTimeout(()=>botRep(txt),900);}
-function sndChat(){const i=document.getElementById('chatInp'),t=i.value.trim();if(!t)return;i.value='';document.getElementById('chatSugg').style.display='none';addMsg(t,'usr');setTimeout(()=>botRep(t),900);}
-function botRep(txt){
-  const m=document.getElementById('chatMsgs'),d=document.createElement('div');
-  d.className='cmsg bot';d.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
-  m.appendChild(d);m.scrollTop=m.scrollHeight;
-  const low=txt.toLowerCase();
-  let rep="Great question! For a detailed answer, book a free 30-min call — you can do that right on this page.";
-  for(const[k,v]of Object.entries(botR)){if(low.includes(k)){rep=v;break;}}
-  setTimeout(()=>{d.textContent=rep;m.scrollTop=m.scrollHeight;},1200);
-}
-setTimeout(()=>{document.getElementById('chatNotif').style.display='block';},4000);
 </script>
 </body>
 </html>

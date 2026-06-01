@@ -1,0 +1,12 @@
+{
+  "name": "krish-consulting-chatbot-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Serverless backend proxy for the krish.consulting AI chatbot",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vercel dev"
+  }
+}
