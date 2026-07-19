@@ -1,0 +1,137 @@
+/* krish.consulting — design system */
+:root{
+  --ground:#fcfcfd;
+  --ink:#0e1210;
+  --body:#3a403d;
+  --sub:#5b6360;
+  --faint:#8b918e;
+  --line:#e7eae8;
+  --line-soft:#e2e5e3;
+  --green:#0c6b54;
+  --green-dot:#0fa07c;
+  --sans:'Schibsted Grotesk',system-ui,-apple-system,sans-serif;
+  --mono:'Fragment Mono',ui-monospace,Consolas,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+.container{max-width:1060px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font-family:var(--mono);font-size:.84rem}
+.logo b{font-weight:400;color:var(--green)}
+.nav-links{display:flex;gap:26px;font-size:.83rem;font-weight:450;color:var(--sub);letter-spacing:.01em}
+.nav-links a:hover{color:var(--ink)}
+.btn{
+  display:inline-block;background:var(--ink);color:var(--ground);
+  padding:10px 22px;border-radius:6px;font-size:.82rem;font-weight:550;
+  letter-spacing:.01em;transition:opacity .15s ease;
+}
+.btn:hover{opacity:.85}
+.btn-sm{padding:8px 18px;font-size:.8rem}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 56px;max-width:640px}
+.status{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:.64rem;color:var(--green);
+  letter-spacing:.04em;margin-bottom:22px;
+}
+.status i{width:5px;height:5px;border-radius:50%;background:var(--green-dot);display:inline-block}
+h1{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.25;letter-spacing:-.018em;font-weight:600;text-wrap:balance}
+.hero p{color:var(--sub);font-size:.94rem;max-width:52ch;margin-top:16px;line-height:1.65;font-weight:420}
+.ctas{display:flex;align-items:center;gap:22px;margin-top:28px;flex-wrap:wrap}
+.ghost{
+  font-size:.82rem;font-weight:500;color:var(--ink);
+  border-bottom:1px solid #c9cecb;padding-bottom:2px;
+}
+.ghost:hover{border-color:var(--ink)}
+
+/* ---------- sections ---------- */
+.section{border-top:1px solid var(--line-soft);padding:18px 0 56px}
+.eyebrow{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;
+  color:var(--faint);text-transform:uppercase;
+}
+.section-intro{color:var(--sub);font-size:.94rem;max-width:56ch;margin-top:20px;line-height:1.65}
+.section-intro strong{color:var(--ink);font-weight:550}
+
+/* ---------- results strip ---------- */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);margin-top:22px}
+.metric{padding:4px 32px 12px 0;border-right:1px solid var(--line)}
+.metric:last-child{border-right:none;padding-right:0}
+.metric + .metric{padding-left:32px}
+.metric .n{font-family:var(--mono);font-size:1.7rem;color:var(--green);letter-spacing:-.02em;line-height:1}
+.metric .n small{font-size:.85rem;letter-spacing:0;color:var(--sub)}
+.metric h3{font-size:.9rem;font-weight:600;letter-spacing:-.01em;margin:12px 0 0}
+
+/* ---------- what I do ---------- */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:30px 48px;margin-top:28px}
+.svc h3{font-size:.95rem;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.svc p{font-size:.86rem;color:var(--sub);line-height:1.6;font-weight:420}
+
+/* ---------- client work cards ---------- */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;margin-top:10px}
+.case{border-top:1px solid var(--line);padding:20px 0 24px}
+.case .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--green);text-transform:uppercase}
+.case h3{font-size:.95rem;font-weight:600;letter-spacing:-.01em;margin:8px 0 6px}
+.case p{font-size:.84rem;color:var(--sub);line-height:1.6;font-weight:420}
+.case p strong{color:var(--ink);font-weight:550}
+.section-cta{margin-top:34px}
+
+/* ---------- research ---------- */
+.research-item{border-top:1px solid var(--line);margin-top:26px;padding-top:24px;max-width:720px}
+.research-item:first-of-type{margin-top:28px}
+.research-item h3{font-size:1.05rem;font-weight:600;letter-spacing:-.015em}
+.research-item .dek{font-size:.9rem;color:var(--green);font-weight:500;margin-top:2px}
+.research-item p{font-size:.9rem;color:var(--body);line-height:1.7;margin-top:14px;max-width:68ch}
+
+/* ---------- contact ---------- */
+.contact{padding-bottom:72px}
+.contact p{font-size:1.05rem;font-weight:500;letter-spacing:-.01em;margin:22px 0 24px;max-width:44ch}
+
+/* ---------- footer ---------- */
+.footer{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  border-top:1px solid var(--line-soft);padding:20px 0;
+  font-family:var(--mono);font-size:.64rem;color:var(--faint);letter-spacing:.03em;
+  flex-wrap:wrap;
+}
+.footer a:hover{color:var(--ink)}
+
+/* ---------- case-study page ---------- */
+.page-header{padding:64px 0 48px;max-width:640px}
+.page-header p{color:var(--sub);font-size:.94rem;margin-top:14px;line-height:1.65;max-width:52ch}
+.study{border-top:1px solid var(--line-soft);padding:44px 0 52px}
+.study .index{font-family:var(--mono);font-size:.64rem;color:var(--faint);letter-spacing:.08em}
+.study h2{font-size:1.35rem;font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;text-wrap:balance}
+.study .dek{font-size:.88rem;color:var(--sub);font-weight:420;max-width:64ch}
+.study .dek b{color:var(--green);font-weight:550}
+.study p{font-size:.94rem;color:var(--body);line-height:1.7;margin-top:18px;max-width:66ch}
+.page-cta{border-top:1px solid var(--line-soft);padding:48px 0 72px}
+.page-cta p{font-size:1.05rem;font-weight:500;letter-spacing:-.01em;margin-bottom:24px}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .services,.cases{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr}
+  .metric{border-right:none;border-bottom:1px solid var(--line);padding:14px 0 18px}
+  .metric + .metric{padding-left:0}
+  .metric:last-child{border-bottom:none}
+}
+@media (max-width:700px){
+  .nav-links{display:none}
+  .hero{padding:52px 0 44px}
+}

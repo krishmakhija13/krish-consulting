@@ -1,46 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://krish.consulting/</loc>
-    <lastmod>2025-05-30</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://krish.consulting/case-studies.html</loc>
-    <lastmod>2025-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://krish.consulting/research.html</loc>
-    <lastmod>2025-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://krish.consulting/ai-diagnostic.html</loc>
-    <lastmod>2025-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://krish.consulting/resources.html</loc>
-    <lastmod>2025-05-30</lastmod>
+    <loc>https://krish.consulting/work.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <url>
-    <loc>https://krish.consulting/faq.html</loc>
-    <lastmod>2025-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>
