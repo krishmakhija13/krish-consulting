@@ -16,3 +16,4 @@ chatbot-backend/.vercel/
 # OS
 .DS_Store
 Thumbs.db
+.git.broken/
