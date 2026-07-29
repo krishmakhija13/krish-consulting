@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Services — Krish Consulting</title>
+<meta name="description" content="Four ways we build: automation & AI agents, forecasting & decision models, systems & operations, and research & data products.">
+<link rel="canonical" href="https://krish.consulting/services.html">
+<meta property="og:title" content="Our Services — Krish Consulting">
+<meta property="og:description" content="Four ways we build: automation & AI agents, forecasting & decision models, systems & operations, and research & data products.">
+<meta property="og:url" content="https://krish.consulting/services.html">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   KRISH.CONSULTING — DESIGN TOKENS (mirror of Home)
+   ============================================================ */
+:root {
+  --ink: #221E20; --cream: #FFFFFF; --panel: #F0EEE9; --line: #DBD7D0;
+  --lavender: #B98CF0; --lavender-deep: #8447EC;
+  --muted: #332E30; --muted-dark: #D6D1D3; --marker: #C9C3BD;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --t-page: clamp(40px, 7.2vw, 92px);
+  --t-h2: clamp(26px, 2.6vw, 38px);
+  --t-body: clamp(16px, 1.15vw, 18px);
+  --t-eyebrow: 12px;
+  --gutter: clamp(20px, 5vw, 72px);
+  --section: clamp(72px, 10vw, 140px);
+  --radius-lg: 28px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 500; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--lavender-deep); }
+::selection { background: var(--lavender); color: #fff; }
+:focus-visible { outline: 2px solid var(--lavender-deep); outline-offset: 3px; border-radius: 4px; }
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+/* ---- scroll reveal ---- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal]:not([data-block]) { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
+  [data-reveal][data-in]:not([data-block]) { opacity: 1; transform: none; }
+  [data-block] [data-rule] { transform: scaleX(0); transform-origin: left center; transition: transform .6s ease-out; }
+  [data-block][data-in] [data-rule] { transform: none; }
+  [data-block] [data-fade] { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
+  [data-block][data-in] [data-fade] { opacity: 1; transform: none; }
+  [data-block] [data-list] li > span { opacity: 0; transform: translateY(8px); transition: opacity .45s ease-out, transform .45s ease-out; }
+  [data-block][data-in] [data-list] li > span { opacity: 1; transform: none; }
+  [data-line] { display: block; animation: rise .7s ease-out both; }
+  /* the four process steps slide in one after another */
+  [data-block] [data-reveal][data-step], [data-reveal][data-step] { opacity: 0; transform: translateX(-38px); transition: opacity .55s ease-out, transform .75s cubic-bezier(.16,.84,.3,1); }
+  [data-block] [data-reveal][data-step][data-in], [data-reveal][data-step][data-in] { opacity: 1; transform: none; }
+}
+[data-list] li { align-items: flex-start; }
+[data-list] li > span:last-child { flex: 1 1 auto; min-width: 0; }
+[data-step] { transition: box-shadow .25s ease; }
+[data-step-label] { transition: color .25s ease; }
+[data-arrow] { display: inline-block; transition: transform .2s ease; }
+a:hover [data-arrow] { transform: translateX(4px); }
+@media (hover: hover) and (min-width: 861px) {
+  [data-step][data-in]:hover { box-shadow: 0 18px 44px -28px rgba(34,30,32,0.45); }
+  [data-step]:hover [data-step-label] { color: var(--lavender-deep); }
+}
+
+/* ---- diagram motion ---- */
+[data-viz] svg [data-a] { transform-box: fill-box; }
+[data-viz]:not([data-play]) svg *, [data-viz]:not([data-play]) [data-agent] * { animation-play-state: paused; }
+@keyframes agentRow { 0%,3% { border-color: var(--line); } 10%,86% { border-color: var(--ink); } 94%,100% { border-color: var(--line); } }
+@keyframes agentTick { 0%,6% { background: transparent; transform: scale(.7); } 14%,86% { background: var(--lavender); transform: scale(1); } 94%,100% { background: transparent; transform: scale(.7); } }
+@keyframes agentBar { 0%,5% { transform: scaleX(0); } 22%,86% { transform: scaleX(1); } 95%,100% { transform: scaleX(0); } }
+@keyframes agentLabel { 0%,8% { opacity: .35; } 18%,86% { opacity: 1; } 95%,100% { opacity: .35; } }
+@keyframes agentPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.72); } }
+@keyframes agentDot { 0%,100% { opacity: .2; } 40% { opacity: 1; } }
+@keyframes drawIn { 0%,4% { stroke-dashoffset: 620; } 40%,86% { stroke-dashoffset: 0; } 96%,100% { stroke-dashoffset: 620; } }
+@keyframes drawProj { 0%,42% { stroke-dashoffset: 300; } 68%,86% { stroke-dashoffset: 0; } 96%,100% { stroke-dashoffset: 300; } }
+@keyframes coneIn { 0%,46% { opacity: 0; transform: scaleY(.25); } 72%,86% { opacity: 1; transform: scaleY(1); } 96%,100% { opacity: 0; transform: scaleY(.25); } }
+@keyframes nodeIn { 0%,8% { opacity: 0; transform: scale(0); } 22%,86% { opacity: 1; transform: scale(1); } 96%,100% { opacity: 0; transform: scale(0); } }
+@keyframes fillOn { 0%, 6% { fill: transparent; } 18%, 74% { fill: var(--lavender); } 86%, 100% { fill: transparent; } }
+@keyframes barIn { 0%, 4% { transform: scaleY(0); opacity: 0; } 16%, 80% { transform: scaleY(1); opacity: 1; } 92%, 100% { transform: scaleY(0); opacity: 0; } }
+@keyframes settle { 0%, 10% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); } 46%, 80% { transform: translate(0,0) rotate(0deg); } 94%, 100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); } }
+@keyframes linkPulse { 0%, 14% { opacity: 0; } 40%, 66% { opacity: 1; } 90%, 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  /* resting states for the diagrams */
+  [data-viz] svg * { animation: none !important; }
+  [data-viz] [data-a="fill"] { fill: var(--lavender); }
+  [data-viz] [data-a="bar"] { transform: scaleY(1); opacity: 1; }
+  [data-viz] [data-a="settle"] { transform: translate(0,0) rotate(0deg); }
+  [data-viz] [data-a="link"] { opacity: 1; }
+  [data-viz] [data-a="draw"] { stroke-dashoffset: 0; }
+  [data-viz] [data-a="cone"] { opacity: .34; transform: none; }
+  [data-viz] [data-a="node"] { opacity: 1; transform: none; }
+}
+
+/* ---- static-port helpers (responsive nav, menu, hover/focus states) ---- */
+[hidden] { display: none !important; }
+.only-desktop, .only-mobile { display: contents; }
+@media (min-width: 861px) { .only-mobile { display: none !important; } }
+@media (max-width: 860px) { .only-desktop { display: none !important; } }
+.skip-link:focus-visible { left: 12px !important; top: 12px !important; }
+.btn-pill:hover, .btn-pill:focus-visible { background: var(--lavender-deep) !important; color: #fff !important; transform: translateY(-2px); }
+.btn-pill-scale:hover, .btn-pill-scale:focus-visible { background: var(--lavender-deep) !important; color: #fff !important; transform: scale(1.02); }
+.link-ul:hover { border-color: var(--lavender) !important; }
+.link-ul-deep:hover { border-color: var(--lavender-deep) !important; }
+.marquee-hover:hover [data-marquee] { animation-play-state: paused; }
+</style>
+<script src="site.js" defer></script>
+</head>
+<body>
+<a href="#main" style="position:absolute;left:-9999px;top:0;padding:12px 18px;background:var(--ink);color:var(--cream);z-index:200" class="skip-link">Skip to content</a>
+
+<header id="nav" style="position:sticky;top:0;z-index:120;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(16px,2vw,30px);background:var(--cream);color:var(--ink);border-bottom:1px solid var(--line)">
+  <a href="./" aria-label="Krish.consulting — home" style="display:flex;align-items:center;gap:11px;font-size:17px;font-weight:600;letter-spacing:-0.01em">
+    <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--ink);color:var(--cream);font-family:var(--serif);font-size:18px;font-weight:500;line-height:1;padding-bottom:2px">K</span>
+    <span>Krish.consulting</span>
+  </a>
+  <div class="only-desktop">
+    <nav aria-label="Primary" style="display:flex;align-items:center;gap:36px;font-size:15px;font-weight:600;color:var(--ink)">
+      <a href="services.html" aria-current="page" style="color:var(--lavender-deep)">Our Services</a>
+      <a href="clients.html">Our Clients</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </div>
+  <div class="only-mobile">
+    <button type="button" aria-label="Open menu" data-menu="open" aria-expanded="false" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;background:none;border:none;color:inherit;cursor:pointer">
+      <span style="display:block;height:1.5px;background:currentColor;border-radius:2px"></span>
+      <span style="display:block;height:1.5px;background:currentColor;border-radius:2px"></span>
+    </button>
+  </div>
+</header>
+
+<div id="menu-layer" hidden>
+  <div role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed;inset:0;z-index:200;background:var(--ink);color:var(--cream);display:flex;flex-direction:column;padding:16px var(--gutter) 48px;animation:rise .28s ease-out both">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:52px">
+      <span style="font-size:17px;font-weight:600">Krish.consulting</span>
+      <button type="button" aria-label="Close menu" data-menu="close" style="width:44px;height:44px;background:none;border:none;color:inherit;font-size:28px;line-height:1;cursor:pointer">&times;</button>
+    </div>
+    <nav aria-label="Mobile" style="display:flex;flex-direction:column;gap:8px;margin-top:56px;font-family:var(--serif);font-size:clamp(34px,10vw,52px);line-height:1.15">
+      <a href="services.html" style="padding:10px 0">Our Services</a>
+      <a href="clients.html" style="padding:10px 0">Our Clients</a>
+      <a href="contact.html" data-menu="close" style="padding:10px 0">Contact Us</a>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <section style="min-height:60vh;background:var(--ink);color:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(72px,9vw,120px) var(--gutter)">
+    <p style="margin:0 0 26px;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender);animation:rise .6s ease-out 0s both">What we do</p>
+    <h1 style="margin:0;max-width:16ch;font-family:var(--serif);font-weight:500;font-size:var(--t-page);line-height:0.99;letter-spacing:-0.02em"><span data-line style="animation-delay:.1s">Four ways</span><span data-line style="animation-delay:.18s">we build.</span></h1>
+    <p style="margin:30px 0 0;max-width:640px;font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:var(--muted-dark);text-wrap:pretty;animation:rise .6s ease-out .33s both">Most engagements start in one of these and end up crossing into another. We scope to the problem, not the category.</p>
+  </section>
+
+  <section style="padding:var(--section) var(--gutter) 0">
+    <div style="max-width:1180px;margin:0 auto">
+
+      <div data-reveal data-block style="padding-bottom:clamp(50px,7vw,98px)">
+        <span data-rule aria-hidden="true" style="display:block;height:1.5px;background:var(--line)"></span>
+        <div data-fade style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-top:clamp(26px,3.4vw,44px);margin-bottom:clamp(20px,2.6vw,34px)">
+          <p aria-hidden="true" style="margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(38px,5.2vw,68px);line-height:1;letter-spacing:-0.03em;color:var(--marker)">01</p>
+          <p style="margin:0;text-align:right;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender-deep)">Automation &amp; AI agents</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);align-items:center;justify-content:space-between">
+          <div data-fade style="flex:1 1 420px;max-width:640px;transition-delay:150ms">
+            <h2 style="margin:0 0 20px;font-size:var(--t-h2);font-weight:600;line-height:1.12;letter-spacing:-0.025em;text-wrap:pretty">Software that does the job, not just the dashboard</h2>
+            <p style="margin:0 0 28px;font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">Repetitive operational work, handed to agents that run without supervision.</p>
+            <ul data-list style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;font-size:16.5px;line-height:1.5">
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:0ms">&#8212;</span><span style="transition-delay:70ms">Outbound calling agents</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:60ms">&#8212;</span><span style="transition-delay:130ms">Internal lookup tools</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:120ms">&#8212;</span><span style="transition-delay:190ms">Workflow automation</span></li>
+            </ul>
+          </div>
+          <div data-viz style="flex:0 0 260px;width:260px;max-width:260px;max-height:200px;align-self:center">
+            <div data-agent role="img" aria-label="Diagram: an agent working through a queue of tasks, each one completing in turn" style="border:1.5px solid var(--ink);border-radius:10px;background:#fff;height:200px;box-sizing:border-box;padding:11px 11px 12px;display:flex;flex-direction:column;justify-content:space-between;gap:7px">
+              <div style="display:flex;align-items:center;gap:7px;padding-bottom:7px;border-bottom:1px solid var(--line)">
+                <span aria-hidden="true" style="width:7px;height:7px;border-radius:999px;background:var(--lavender-deep);animation:agentPulse 1.4s ease-in-out infinite"></span>
+                <span style="font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink)">Agent running</span>
+                <span aria-hidden="true" style="margin-left:auto;display:flex;gap:3px">
+                  <span style="width:3px;height:3px;border-radius:999px;background:var(--ink);animation:agentDot 1.1s ease-in-out 0s infinite"></span>
+                  <span style="width:3px;height:3px;border-radius:999px;background:var(--ink);animation:agentDot 1.1s ease-in-out .18s infinite"></span>
+                  <span style="width:3px;height:3px;border-radius:999px;background:var(--ink);animation:agentDot 1.1s ease-in-out .36s infinite"></span>
+                </span>
+              </div>
+              <div aria-hidden="true" style="display:flex;flex-direction:column;gap:5px">
+                <div style="display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:5px;padding:4px 7px;animation:agentRow 5s ease-in-out 0s infinite both">
+                  <span style="width:10px;height:10px;flex:none;border:1.5px solid var(--ink);border-radius:2px;animation:agentTick 5s ease-in-out 0s infinite both"></span>
+                  <span style="font-size:9.5px;font-weight:600;letter-spacing:0.01em;animation:agentLabel 5s ease-in-out 0s infinite both">Pull open tickets</span>
+                  <span style="margin-left:auto;width:34px;height:3px;border-radius:2px;background:var(--line);overflow:hidden"><span style="display:block;width:100%;height:100%;background:var(--ink);transform-origin:left;animation:agentBar 5s cubic-bezier(.4,0,.2,1) 0s infinite both"></span></span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:5px;padding:4px 7px;animation:agentRow 5s ease-in-out .5s infinite both">
+                  <span style="width:10px;height:10px;flex:none;border:1.5px solid var(--ink);border-radius:2px;animation:agentTick 5s ease-in-out .5s infinite both"></span>
+                  <span style="font-size:9.5px;font-weight:600;letter-spacing:0.01em;animation:agentLabel 5s ease-in-out .5s infinite both">Look up account</span>
+                  <span style="margin-left:auto;width:34px;height:3px;border-radius:2px;background:var(--line);overflow:hidden"><span style="display:block;width:100%;height:100%;background:var(--ink);transform-origin:left;animation:agentBar 5s cubic-bezier(.4,0,.2,1) .5s infinite both"></span></span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:5px;padding:4px 7px;animation:agentRow 5s ease-in-out 1s infinite both">
+                  <span style="width:10px;height:10px;flex:none;border:1.5px solid var(--ink);border-radius:2px;animation:agentTick 5s ease-in-out 1s infinite both"></span>
+                  <span style="font-size:9.5px;font-weight:600;letter-spacing:0.01em;animation:agentLabel 5s ease-in-out 1s infinite both">Place the call</span>
+                  <span style="margin-left:auto;width:34px;height:3px;border-radius:2px;background:var(--line);overflow:hidden"><span style="display:block;width:100%;height:100%;background:var(--ink);transform-origin:left;animation:agentBar 5s cubic-bezier(.4,0,.2,1) 1s infinite both"></span></span>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:5px;padding:4px 7px;animation:agentRow 5s ease-in-out 1.5s infinite both">
+                  <span style="width:10px;height:10px;flex:none;border:1.5px solid var(--ink);border-radius:2px;animation:agentTick 5s ease-in-out 1.5s infinite both"></span>
+                  <span style="font-size:9.5px;font-weight:600;letter-spacing:0.01em;animation:agentLabel 5s ease-in-out 1.5s infinite both">Log the outcome</span>
+                  <span style="margin-left:auto;width:34px;height:3px;border-radius:2px;background:var(--line);overflow:hidden"><span style="display:block;width:100%;height:100%;background:var(--ink);transform-origin:left;animation:agentBar 5s cubic-bezier(.4,0,.2,1) 1.5s infinite both"></span></span>
+                </div>
+                
+                </div>
+              <div aria-hidden="true" style="display:flex;align-items:center;justify-content:space-between;font-size:8px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)">
+                <span>No supervision</span><span>24 / 7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal data-block style="padding-bottom:clamp(50px,7vw,98px)">
+        <span data-rule aria-hidden="true" style="display:block;height:1.5px;background:var(--line)"></span>
+        <div data-fade style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-top:clamp(26px,3.4vw,44px);margin-bottom:clamp(20px,2.6vw,34px)">
+          <p aria-hidden="true" style="margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(38px,5.2vw,68px);line-height:1;letter-spacing:-0.03em;color:var(--marker)">02</p>
+          <p style="margin:0;text-align:right;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender-deep)">Forecasting &amp; decision models</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);align-items:center;justify-content:space-between">
+          <div data-fade style="flex:1 1 420px;max-width:640px;transition-delay:150ms">
+            <h2 style="margin:0 0 20px;font-size:var(--t-h2);font-weight:600;line-height:1.12;letter-spacing:-0.025em;text-wrap:pretty">Know what's coming before it costs you</h2>
+            <p style="margin:0 0 28px;font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">Models built on your own history, with the reasoning visible.</p>
+            <ul data-list style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;font-size:16.5px;line-height:1.5">
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:0ms">&#8212;</span><span style="transition-delay:70ms">Demand and stock forecasting</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:60ms">&#8212;</span><span style="transition-delay:130ms">Spoilage prediction</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:120ms">&#8212;</span><span style="transition-delay:190ms">Location intelligence</span></li>
+            </ul>
+          </div>
+          <div data-viz style="flex:0 0 260px;width:260px;max-width:260px;max-height:200px;align-self:center">
+            <svg viewBox="0 0 260 200" role="img" aria-label="Diagram: a fitted demand curve drawing in, then extending as a dashed projection inside a widening confidence band" style="display:block;width:100%;height:auto">
+              <g stroke="var(--line)" stroke-width="1">
+                <line x1="8" y1="40" x2="252" y2="40"></line>
+                <line x1="8" y1="80" x2="252" y2="80"></line>
+                <line x1="8" y1="120" x2="252" y2="120"></line>
+                <line x1="8" y1="160" x2="252" y2="160"></line>
+              </g>
+              <polygon points="176,104 232,52 252,30 252,116 232,98" fill="var(--lavender)" opacity="0.34" data-a="cone" style="transform-origin:176px 104px;animation:coneIn 5.4s cubic-bezier(.4,0,.2,1) 0s infinite both"></polygon>
+              <path d="M8 150 L36 138 L64 144 L92 120 L120 126 L148 98 L176 104" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="620" data-a="draw" style="animation:drawIn 5.4s cubic-bezier(.4,0,.2,1) 0s infinite both"></path>
+              <path d="M176 104 L204 88 L232 74 L252 64" fill="none" stroke="var(--lavender-deep)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 5" data-a="draw" style="animation:drawProj 5.4s cubic-bezier(.4,0,.2,1) 0s infinite both"></path>
+              <circle cx="8" cy="150" r="3" fill="var(--ink)" data-a="node" style="transform-origin:8px 150px;animation:nodeIn 5.4s ease-out 0.00s infinite both"></circle>
+              <circle cx="36" cy="138" r="3" fill="var(--ink)" data-a="node" style="transform-origin:36px 138px;animation:nodeIn 5.4s ease-out 0.09s infinite both"></circle>
+              <circle cx="64" cy="144" r="3" fill="var(--ink)" data-a="node" style="transform-origin:64px 144px;animation:nodeIn 5.4s ease-out 0.18s infinite both"></circle>
+              <circle cx="92" cy="120" r="3" fill="var(--ink)" data-a="node" style="transform-origin:92px 120px;animation:nodeIn 5.4s ease-out 0.27s infinite both"></circle>
+              <circle cx="120" cy="126" r="3" fill="var(--ink)" data-a="node" style="transform-origin:120px 126px;animation:nodeIn 5.4s ease-out 0.36s infinite both"></circle>
+              <circle cx="148" cy="98" r="3" fill="var(--ink)" data-a="node" style="transform-origin:148px 98px;animation:nodeIn 5.4s ease-out 0.45s infinite both"></circle>
+              <circle cx="176" cy="104" r="3" fill="var(--ink)" data-a="node" style="transform-origin:176px 104px;animation:nodeIn 5.4s ease-out 0.54s infinite both"></circle>
+              <circle cx="176" cy="104" r="4.5" fill="var(--lavender-deep)" data-a="node" style="transform-origin:176px 104px;animation:nodeIn 5.4s ease-out .62s infinite both"></circle>
+              <line x1="176" y1="18" x2="176" y2="186" stroke="var(--lavender-deep)" stroke-width="1" stroke-dasharray="3 4"></line>
+              <line x1="8" y1="188" x2="252" y2="188" stroke="var(--ink)" stroke-width="1.5"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal data-block style="padding-bottom:clamp(50px,7vw,98px)">
+        <span data-rule aria-hidden="true" style="display:block;height:1.5px;background:var(--line)"></span>
+        <div data-fade style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-top:clamp(26px,3.4vw,44px);margin-bottom:clamp(20px,2.6vw,34px)">
+          <p aria-hidden="true" style="margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(38px,5.2vw,68px);line-height:1;letter-spacing:-0.03em;color:var(--marker)">03</p>
+          <p style="margin:0;text-align:right;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender-deep)">Systems &amp; operations</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);align-items:center;justify-content:space-between">
+          <div data-fade style="flex:1 1 420px;max-width:640px;transition-delay:150ms">
+            <h2 style="margin:0 0 20px;font-size:var(--t-h2);font-weight:600;line-height:1.12;letter-spacing:-0.025em;text-wrap:pretty">Replace the spreadsheet, not just decorate it</h2>
+            <p style="margin:0 0 28px;font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">We rebuild the operational core, not just the reporting layer on top.</p>
+            <ul data-list style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;font-size:16.5px;line-height:1.5">
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:0ms">&#8212;</span><span style="transition-delay:70ms">Accounting and stock systems</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:60ms">&#8212;</span><span style="transition-delay:130ms">Custom internal tools</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:120ms">&#8212;</span><span style="transition-delay:190ms">Migration off spreadsheets</span></li>
+            </ul>
+          </div>
+          <div data-viz style="flex:0 0 260px;width:260px;max-width:260px;max-height:200px;align-self:center">
+            <svg viewBox="0 0 260 200" role="img" aria-label="Diagram: scattered records settling into aligned rows" style="display:block;width:100%;height:auto">
+              <g stroke="var(--ink)" stroke-width="2" fill="transparent">
+                <rect data-a="settle" x="8" y="14" width="40" height="36" rx="3" style="--dx:-4px;--dy:3px;--rot:-6deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.00s infinite both"></rect>
+                <rect data-a="settle" x="58" y="14" width="40" height="36" rx="3" style="--dx:5px;--dy:-3px;--rot:7deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.03s infinite both"></rect>
+                <rect data-a="settle" x="108" y="14" width="40" height="36" rx="3" style="--dx:-3px;--dy:-4px;--rot:4deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.06s infinite both"></rect>
+                <rect data-a="settle" x="158" y="14" width="40" height="36" rx="3" style="--dx:6px;--dy:4px;--rot:-5deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.09s infinite both"></rect>
+                <rect data-a="settle" x="208" y="14" width="40" height="36" rx="3" style="--dx:-5px;--dy:2px;--rot:6deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.12s infinite both"></rect>
+                <rect data-a="settle" x="8" y="76" width="40" height="36" rx="3" style="--dx:3px;--dy:-5px;--rot:-7deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.15s infinite both"></rect>
+                <rect data-a="settle" x="58" y="76" width="40" height="36" rx="3" style="--dx:-6px;--dy:-2px;--rot:5deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.18s infinite both"></rect>
+                <rect data-a="settle" x="108" y="76" width="40" height="36" rx="3" style="--dx:4px;--dy:5px;--rot:-4deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.21s infinite both"></rect>
+                <rect data-a="settle" x="158" y="76" width="40" height="36" rx="3" style="--dx:-2px;--dy:4px;--rot:7deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.24s infinite both"></rect>
+                <rect data-a="settle" x="208" y="76" width="40" height="36" rx="3" style="--dx:5px;--dy:-4px;--rot:-6deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.27s infinite both"></rect>
+                <rect data-a="settle" x="8" y="138" width="40" height="36" rx="3" style="--dx:-4px;--dy:-5px;--rot:4deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.30s infinite both"></rect>
+                <rect data-a="settle" x="58" y="138" width="40" height="36" rx="3" style="--dx:6px;--dy:2px;--rot:-3deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.33s infinite both"></rect>
+                <rect data-a="settle" x="108" y="138" width="40" height="36" rx="3" style="--dx:-3px;--dy:5px;--rot:6deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.36s infinite both"></rect>
+                <rect data-a="settle" x="158" y="138" width="40" height="36" rx="3" style="--dx:4px;--dy:-2px;--rot:-5deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.39s infinite both"></rect>
+                <rect data-a="settle" x="208" y="138" width="40" height="36" rx="3" style="--dx:-5px;--dy:3px;--rot:5deg;transform-origin:center;animation:settle 5.5s cubic-bezier(.4,0,.2,1) 0.42s infinite both"></rect>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal data-block style="padding-bottom:clamp(50px,7vw,98px)">
+        <span data-rule aria-hidden="true" style="display:block;height:1.5px;background:var(--line)"></span>
+        <div data-fade style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-top:clamp(26px,3.4vw,44px);margin-bottom:clamp(20px,2.6vw,34px)">
+          <p aria-hidden="true" style="margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(38px,5.2vw,68px);line-height:1;letter-spacing:-0.03em;color:var(--marker)">04</p>
+          <p style="margin:0;text-align:right;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender-deep)">Research &amp; data products</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);align-items:center;justify-content:space-between">
+          <div data-fade style="flex:1 1 420px;max-width:640px;transition-delay:150ms">
+            <h2 style="margin:0 0 20px;font-size:var(--t-h2);font-weight:600;line-height:1.12;letter-spacing:-0.025em;text-wrap:pretty">Public data, made usable</h2>
+            <p style="margin:0 0 28px;font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">Open datasets turned into live tools and published research.</p>
+            <ul data-list style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;font-size:16.5px;line-height:1.5">
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:0ms">&#8212;</span><span style="transition-delay:70ms">Live public-data dashboards</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:60ms">&#8212;</span><span style="transition-delay:130ms">Published working papers</span></li>
+              <li style="display:flex;gap:14px"><span aria-hidden="true" style="color:var(--lavender-deep);transition-delay:120ms">&#8212;</span><span style="transition-delay:190ms">Custom data pipelines</span></li>
+            </ul>
+          </div>
+          <div data-viz style="flex:0 0 260px;width:260px;max-width:260px;max-height:200px;align-self:center">
+            <svg viewBox="0 0 260 200" role="img" aria-label="Diagram: a dense cluster of data points connected by thin lines" style="display:block;width:100%;height:auto">
+              <g stroke="var(--marker)" stroke-width="2">
+                <line data-a="link" x1="18" y1="44" x2="52" y2="20" style="animation:linkPulse 5s ease-in-out 0.00s infinite both"></line>
+                <line data-a="link" x1="52" y1="20" x2="86" y2="52" style="animation:linkPulse 5s ease-in-out 0.04s infinite both"></line>
+                <line data-a="link" x1="86" y1="52" x2="120" y2="26" style="animation:linkPulse 5s ease-in-out 0.09s infinite both"></line>
+                <line data-a="link" x1="120" y1="26" x2="152" y2="58" style="animation:linkPulse 5s ease-in-out 0.14s infinite both"></line>
+                <line data-a="link" x1="152" y1="58" x2="186" y2="30" style="animation:linkPulse 5s ease-in-out 0.18s infinite both"></line>
+                <line data-a="link" x1="186" y1="30" x2="220" y2="50" style="animation:linkPulse 5s ease-in-out 0.22s infinite both"></line>
+                <line data-a="link" x1="220" y1="50" x2="240" y2="86" style="animation:linkPulse 5s ease-in-out 0.27s infinite both"></line>
+                <line data-a="link" x1="240" y1="86" x2="206" y2="96" style="animation:linkPulse 5s ease-in-out 0.32s infinite both"></line>
+                <line data-a="link" x1="206" y1="96" x2="170" y2="80" style="animation:linkPulse 5s ease-in-out 0.36s infinite both"></line>
+                <line data-a="link" x1="170" y1="80" x2="134" y2="104" style="animation:linkPulse 5s ease-in-out 0.40s infinite both"></line>
+                <line data-a="link" x1="134" y1="104" x2="98" y2="90" style="animation:linkPulse 5s ease-in-out 0.45s infinite both"></line>
+                <line data-a="link" x1="98" y1="90" x2="62" y2="112" style="animation:linkPulse 5s ease-in-out 0.49s infinite both"></line>
+                <line data-a="link" x1="62" y1="112" x2="26" y2="92" style="animation:linkPulse 5s ease-in-out 0.54s infinite both"></line>
+                <line data-a="link" x1="26" y1="92" x2="18" y2="44" style="animation:linkPulse 5s ease-in-out 0.58s infinite both"></line>
+                <line data-a="link" x1="62" y1="112" x2="54" y2="158" style="animation:linkPulse 5s ease-in-out 0.63s infinite both"></line>
+                <line data-a="link" x1="54" y1="158" x2="96" y2="140" style="animation:linkPulse 5s ease-in-out 0.67s infinite both"></line>
+                <line data-a="link" x1="96" y1="140" x2="138" y2="166" style="animation:linkPulse 5s ease-in-out 0.72s infinite both"></line>
+                <line data-a="link" x1="138" y1="166" x2="180" y2="144" style="animation:linkPulse 5s ease-in-out 0.77s infinite both"></line>
+                <line data-a="link" x1="180" y1="144" x2="218" y2="170" style="animation:linkPulse 5s ease-in-out 0.81s infinite both"></line>
+                <line data-a="link" x1="134" y1="104" x2="96" y2="140" style="animation:linkPulse 5s ease-in-out 0.85s infinite both"></line>
+                <line data-a="link" x1="170" y1="80" x2="152" y2="58" style="animation:linkPulse 5s ease-in-out 0.90s infinite both"></line>
+                <line data-a="link" x1="98" y1="90" x2="86" y2="52" style="animation:linkPulse 5s ease-in-out 0.94s infinite both"></line>
+              </g>
+              <g fill="var(--ink)">
+                <circle cx="18" cy="44" r="3.5"></circle>
+                <circle cx="52" cy="20" r="3.5"></circle>
+                <circle cx="86" cy="52" r="5" fill="var(--lavender-deep)"></circle>
+                <circle cx="120" cy="26" r="3.5"></circle>
+                <circle cx="152" cy="58" r="3.5"></circle>
+                <circle cx="186" cy="30" r="3.5"></circle>
+                <circle cx="220" cy="50" r="3.5"></circle>
+                <circle cx="240" cy="86" r="3.5"></circle>
+                <circle cx="206" cy="96" r="5" fill="var(--lavender-deep)"></circle>
+                <circle cx="170" cy="80" r="3.5"></circle>
+                <circle cx="134" cy="104" r="3.5"></circle>
+                <circle cx="98" cy="90" r="3.5"></circle>
+                <circle cx="62" cy="112" r="3.5"></circle>
+                <circle cx="26" cy="92" r="3.5"></circle>
+                <circle cx="54" cy="158" r="5" fill="var(--lavender-deep)"></circle>
+                <circle cx="96" cy="140" r="3.5"></circle>
+                <circle cx="138" cy="166" r="3.5"></circle>
+                <circle cx="180" cy="144" r="3.5"></circle>
+                <circle cx="218" cy="170" r="3.5"></circle>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding:0 var(--gutter) var(--section)">
+    <div style="max-width:1320px;margin:0 auto;background:var(--panel);border-radius:var(--radius-lg);padding:clamp(44px,6vw,88px) clamp(28px,5vw,72px)">
+      <h2 data-reveal style="margin:0 0 clamp(36px,5vw,64px);text-align:center;font-size:var(--t-h2);font-weight:600;letter-spacing:-0.025em">How we work</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(28px,3.4vw,44px)">
+        <div data-reveal data-step style="transition-delay:0ms">
+          <p data-step-label style="margin:0 0 14px;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)">Step 1.</p>
+          <h3 style="margin:0 0 12px;font-size:19px;font-weight:700;line-height:1.25;letter-spacing:-0.015em">Understand the actual problem</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:var(--muted);text-wrap:pretty">A conversation, not a questionnaire. Often the stated problem isn't the expensive one.</p>
+        </div>
+        <div data-reveal data-step style="transition-delay:170ms">
+          <p data-step-label style="margin:0 0 14px;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)">Step 2.</p>
+          <h3 style="margin:0 0 12px;font-size:19px;font-weight:700;line-height:1.25;letter-spacing:-0.015em">Scope something shippable</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:var(--muted);text-wrap:pretty">We agree on one thing that will work and what "working" means before anything gets built.</p>
+        </div>
+        <div data-reveal data-step style="transition-delay:340ms">
+          <p data-step-label style="margin:0 0 14px;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)">Step 3.</p>
+          <h3 style="margin:0 0 12px;font-size:19px;font-weight:700;line-height:1.25;letter-spacing:-0.015em">Build it</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:var(--muted);text-wrap:pretty">Short cycles, working software early, no six-month reveal at the end.</p>
+        </div>
+        <div data-reveal data-step style="transition-delay:510ms">
+          <p data-step-label style="margin:0 0 14px;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)">Step 4.</p>
+          <h3 style="margin:0 0 12px;font-size:19px;font-weight:700;line-height:1.25;letter-spacing:-0.015em">Hand it over</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:var(--muted);text-wrap:pretty">You own it, you can run it, and you know what to do when it breaks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 var(--gutter) var(--section)">
+    <div data-reveal style="max-width:1180px;margin:0 auto;text-align:center">
+      <h2 style="margin:0 0 26px;font-size:var(--t-h2);font-weight:600;letter-spacing:-0.025em">Who we work with</h2>
+      <p style="margin:0 auto;max-width:640px;font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">Independent businesses — retail, manufacturing, healthcare, education. Usually somewhere between "the spreadsheets stopped working" and "we can't hire our way out of this." We're small and we take on work we can actually finish.</p>
+      <a href="clients.html" style="display:inline-block;margin-top:30px;font-size:15px;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:3px" class="link-ul-deep">See what we've built <span data-arrow aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--ink);color:var(--cream);padding:var(--section) var(--gutter) 0">
+    <div style="max-width:1180px;margin:0 auto;text-align:center">
+      <h2 data-reveal style="margin:0 auto;max-width:14ch;font-family:var(--serif);font-weight:500;font-size:clamp(36px,5.4vw,68px);line-height:1.02;letter-spacing:-0.02em;text-wrap:balance">Let's build something that works.</h2>
+      <a data-reveal href="mailto:krish@krish.consulting" style="display:inline-flex;align-items:center;margin-top:40px;padding:18px 36px;border-radius:999px;background:var(--cream);color:var(--ink);font-size:16px;font-weight:600;transition:transform .2s ease,background .2s ease,color .2s ease" class="btn-pill-scale">Contact us</a>
+    </div>
+    <footer style="max-width:1180px;margin:clamp(72px,9vw,120px) auto 0;padding:32px 0;border-top:1px solid rgba(255,255,255,0.16);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:14px;color:var(--muted-dark)">
+      <span style="color:var(--cream);font-weight:600;font-size:15px">Krish.consulting</span>
+      <nav aria-label="Footer" style="display:flex;flex-wrap:wrap;gap:28px">
+        <a href="mailto:krish@krish.consulting">krish@krish.consulting</a>
+      </nav>
+      <span>&copy; 2026 Krish.consulting</span>
+    </footer>
+  </section>
+
+</main>
+</body>
+</html>

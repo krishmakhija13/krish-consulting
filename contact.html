@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — Krish Consulting</title>
+<meta name="description" content="Book a free 30-minute discovery call or write to krish@krish.consulting. Start with what isn't working.">
+<link rel="canonical" href="https://krish.consulting/contact.html">
+<meta property="og:title" content="Contact Us — Krish Consulting">
+<meta property="og:description" content="Book a free 30-minute discovery call or write to krish@krish.consulting. Start with what isn't working.">
+<meta property="og:url" content="https://krish.consulting/contact.html">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   KRISH.CONSULTING — DESIGN TOKENS (shared with Home / Services / Clients)
+   ============================================================ */
+:root {
+  --ink: #221E20; --cream: #FFFFFF; --panel: #F0EEE9; --line: #DBD7D0;
+  --lavender: #B98CF0; --lavender-deep: #8447EC; --muted: #332E30; --muted-dark: #D6D1D3;
+  --marker: #C4BDB6;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --t-display: clamp(40px, 6.4vw, 88px);
+  --t-h2: clamp(26px, 3vw, 40px);
+  --t-body: clamp(16px, 1.15vw, 18px);
+  --t-eyebrow: 12px;
+  --gutter: clamp(20px, 5vw, 72px);
+  --section: clamp(72px, 10vw, 140px);
+  --radius-lg: 28px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 500; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--lavender-deep); }
+::selection { background: var(--lavender); color: #fff; }
+:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; border-radius: 4px; }
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .55s ease-out, transform .55s ease-out; }
+  [data-reveal][data-in] { opacity: 1; transform: none; }
+  [data-rule] { transform: scaleX(0); transform-origin: left center; transition: transform .95s cubic-bezier(.16,.84,.3,1) .1s; }
+  [data-rule][data-in] { transform: none; }
+}
+[data-arrow] span { display: inline-block; transition: transform .25s cubic-bezier(.16,.84,.3,1); }
+[data-arrow]:hover span, [data-arrow]:focus-visible span { transform: translateX(4px); }
+.calendly-inline-widget { width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  html { scroll-behavior: auto; }
+  [data-rule] { transform: none !important; }
+}
+
+/* ---- static-port helpers (responsive nav, menu, hover/focus states) ---- */
+[hidden] { display: none !important; }
+.only-desktop, .only-mobile { display: contents; }
+@media (min-width: 861px) { .only-mobile { display: none !important; } }
+@media (max-width: 860px) { .only-desktop { display: none !important; } }
+.skip-link:focus-visible { left: 12px !important; top: 12px !important; }
+.btn-pill:hover, .btn-pill:focus-visible { background: var(--lavender-deep) !important; color: #fff !important; transform: translateY(-2px); }
+.btn-pill-scale:hover, .btn-pill-scale:focus-visible { background: var(--lavender-deep) !important; color: #fff !important; transform: scale(1.02); }
+.link-ul:hover { border-color: var(--lavender) !important; }
+.link-ul-deep:hover { border-color: var(--lavender-deep) !important; }
+.marquee-hover:hover [data-marquee] { animation-play-state: paused; }
+</style>
+<script src="site.js" defer></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body>
+<a href="#main" style="position:absolute;left:-9999px;top:0;padding:12px 18px;background:var(--ink);color:var(--cream);z-index:200" class="skip-link">Skip to content</a>
+
+<header id="nav" style="position:sticky;top:0;z-index:120;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(16px,2vw,30px);background:var(--cream);color:var(--ink);border-bottom:1px solid var(--line)">
+  <a href="./" aria-label="Krish.consulting — home" style="display:flex;align-items:center;gap:11px;font-size:17px;font-weight:600;letter-spacing:-0.01em">
+    <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--ink);color:var(--cream);font-family:var(--serif);font-size:18px;font-weight:500;line-height:1;padding-bottom:2px">K</span>
+    <span>Krish.consulting</span>
+  </a>
+  <div class="only-desktop">
+    <nav aria-label="Primary" style="display:flex;align-items:center;gap:36px;font-size:15px;font-weight:600;color:var(--ink)">
+      <a href="services.html">Our Services</a>
+      <a href="clients.html">Our Clients</a>
+      <a href="contact.html" aria-current="page" style="color:var(--lavender-deep)">Contact Us</a>
+    </nav>
+  </div>
+  <div class="only-mobile">
+    <button type="button" aria-label="Open menu" data-menu="open" aria-expanded="false" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;background:none;border:none;color:inherit;cursor:pointer">
+      <span style="display:block;height:1.5px;background:currentColor;border-radius:2px"></span>
+      <span style="display:block;height:1.5px;background:currentColor;border-radius:2px"></span>
+    </button>
+  </div>
+</header>
+
+<div id="menu-layer" hidden>
+  <div role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed;inset:0;z-index:200;background:var(--ink);color:var(--cream);display:flex;flex-direction:column;padding:16px var(--gutter) 48px;animation:rise .28s ease-out both">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:52px">
+      <span style="font-size:17px;font-weight:600">Krish.consulting</span>
+      <button type="button" aria-label="Close menu" data-menu="close" style="width:44px;height:44px;background:none;border:none;color:inherit;font-size:28px;line-height:1;cursor:pointer">&times;</button>
+    </div>
+    <nav aria-label="Mobile" style="display:flex;flex-direction:column;gap:8px;margin-top:56px;font-family:var(--serif);font-size:clamp(34px,10vw,52px);line-height:1.15">
+      <a href="services.html" style="padding:10px 0">Our Services</a>
+      <a href="clients.html" style="padding:10px 0">Our Clients</a>
+      <a href="contact.html" data-menu="close" style="padding:10px 0">Contact Us</a>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+
+  <section style="background:var(--ink);color:var(--cream);min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(64px,8vw,104px) var(--gutter)">
+    <p style="margin:0 0 24px;font-size:var(--t-eyebrow);font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--lavender);animation:rise .6s ease-out both">Contact</p>
+    <h1 style="margin:0;max-width:18ch;font-family:var(--serif);font-weight:500;font-size:var(--t-display);line-height:1.02;letter-spacing:-0.02em;text-wrap:balance;animation:rise .7s ease-out .08s both">Start with what isn't working.</h1>
+    <p style="margin:30px 0 0;max-width:580px;font-size:var(--t-body);line-height:1.7;color:var(--muted-dark);text-wrap:pretty;animation:rise .7s ease-out .18s both">If there is a problem in your business that software ought to be handling, begin there. The first conversation carries no charge, and you will receive a candid assessment of whether the work is worth building.</p>
+  </section>
+
+  <section style="padding:clamp(48px,6vw,88px) var(--gutter) clamp(40px,5vw,72px)">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:flex-start">
+
+      <div data-reveal style="flex:1 1 55%;min-width:min(100%,320px)">
+        <div class="only-desktop">
+          <div style="border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--cream)">
+            <div id="calendly-inline" class="calendly-inline-widget" data-url="https://calendly.com/krish13ts/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=221e20&primary_color=8447ec" style="min-width:280px;height:680px"></div>
+          </div>
+        </div>
+        <div class="only-mobile">
+          <div style="border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px 26px;display:flex;flex-direction:column;align-items:flex-start;gap:18px">
+            <p style="margin:0;font-size:var(--t-eyebrow);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender-deep)">Book a call</p>
+            <p style="margin:0;font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">Thirty minutes, no pitch deck. Pick a slot that suits you.</p>
+            <a href="https://calendly.com/krish13ts/30min" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:16px 30px;border-radius:999px;background:var(--ink);color:var(--cream);font-size:16px;font-weight:600;transition:background .2s ease,transform .2s ease" class="btn-pill">Open the calendar</a>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="flex:1 1 32%;min-width:min(100%,280px);display:flex;flex-direction:column">
+        <p style="margin:0 0 18px;font-size:var(--t-eyebrow);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--lavender-deep)">Or just write to me</p>
+        <a href="mailto:krish@krish.consulting" style="font-size:clamp(21px,2.2vw,29px);font-weight:600;letter-spacing:-0.025em;line-height:1.2;word-break:break-word">krish@krish.consulting</a>
+        <p style="margin:22px 0 0;max-width:44ch;font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">A brief outline of what your business does and where the time is being lost is enough to begin. Every message is read personally.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding:0 var(--gutter) clamp(64px,8vw,110px)">
+    <div data-reveal style="max-width:1180px;margin:0 auto;background:var(--panel);border-radius:var(--radius-lg);padding:clamp(44px,6vw,84px) var(--gutter)">
+      <div style="max-width:640px;margin:0 auto;text-align:center">
+        <h2 style="margin:0 0 clamp(28px,3.4vw,42px);font-family:var(--serif);font-weight:500;font-size:var(--t-h2);line-height:1.1;letter-spacing:-0.02em">What happens next</h2>
+        <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:clamp(18px,2.2vw,26px);text-align:left">
+          <li style="display:flex;gap:16px;align-items:baseline">
+            <span aria-hidden="true" style="flex:none;font-family:var(--serif);font-size:15px;font-weight:500;color:var(--lavender-deep);letter-spacing:0.02em">01</span>
+            <span style="font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">We talk. Thirty minutes, no pitch deck.</span>
+          </li>
+          <li style="display:flex;gap:16px;align-items:baseline">
+            <span aria-hidden="true" style="flex:none;font-family:var(--serif);font-size:15px;font-weight:500;color:var(--lavender-deep);letter-spacing:0.02em">02</span>
+            <span style="font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">If I can help, I'll scope something small and specific before anything gets built.</span>
+          </li>
+          <li style="display:flex;gap:16px;align-items:baseline">
+            <span aria-hidden="true" style="flex:none;font-family:var(--serif);font-size:15px;font-weight:500;color:var(--lavender-deep);letter-spacing:0.02em">03</span>
+            <span style="font-size:var(--t-body);line-height:1.7;color:var(--muted);text-wrap:pretty">If I can't, I'll say so and point you somewhere better.</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--ink);color:var(--cream);padding:0 var(--gutter)">
+    <footer style="max-width:1180px;margin:0 auto;padding:36px 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-size:14px;color:var(--muted-dark)">
+      <span style="color:var(--cream);font-weight:600;font-size:15px">Krish.consulting</span>
+      <nav aria-label="Footer" style="display:flex;flex-wrap:wrap;gap:28px">
+        <a href="mailto:krish@krish.consulting">krish@krish.consulting</a>
+      </nav>
+      <span>&copy; 2026 Krish.consulting</span>
+    </footer>
+  </section>
+
+</main>
+</body>
+</html>
