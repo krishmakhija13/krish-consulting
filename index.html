@@ -73,11 +73,11 @@ a:hover { color: var(--lavender-deep); }
 @keyframes marquee-left  { from { transform: translateX(0); }      to { transform: translateX(-50%); } }
 @keyframes marquee-right { from { transform: translateX(-50%); }   to { transform: translateX(0); } }
 @media (prefers-reduced-motion: no-preference) {
-  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
+  .js [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
   [data-reveal][data-in] { opacity: 1; transform: none; }
   /* Masked line-slide: the text rides up from behind its own row */
   [data-slide] { opacity: 1 !important; transform: none !important; }
-  [data-slide] span { display: block; transform: translateY(112%); transition: transform .82s cubic-bezier(.16,.84,.3,1); }
+  .js [data-slide] span { display: block; transform: translateY(112%); transition: transform .82s cubic-bezier(.16,.84,.3,1); }
   [data-slide][data-in] span { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -96,7 +96,8 @@ a:hover { color: var(--lavender-deep); }
 .link-ul-deep:hover { border-color: var(--lavender-deep) !important; }
 .marquee-hover:hover [data-marquee] { animation-play-state: paused; }
 </style>
-<script src="site.js" defer></script>
+<script>document.documentElement.classList.add('js')</script>
+<script src="site.js?v=2" defer></script>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-9999px;top:0;padding:12px 18px;background:var(--ink);color:var(--cream);z-index:200" class="skip-link">Skip to content</a>

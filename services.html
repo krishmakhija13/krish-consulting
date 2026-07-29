@@ -41,17 +41,17 @@ a:hover { color: var(--lavender-deep); }
 
 /* ---- scroll reveal ---- */
 @media (prefers-reduced-motion: no-preference) {
-  [data-reveal]:not([data-block]) { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
+  .js [data-reveal]:not([data-block]) { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
   [data-reveal][data-in]:not([data-block]) { opacity: 1; transform: none; }
-  [data-block] [data-rule] { transform: scaleX(0); transform-origin: left center; transition: transform .6s ease-out; }
+  .js [data-block] [data-rule] { transform: scaleX(0); transform-origin: left center; transition: transform .6s ease-out; }
   [data-block][data-in] [data-rule] { transform: none; }
-  [data-block] [data-fade] { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
+  .js [data-block] [data-fade] { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; }
   [data-block][data-in] [data-fade] { opacity: 1; transform: none; }
-  [data-block] [data-list] li > span { opacity: 0; transform: translateY(8px); transition: opacity .45s ease-out, transform .45s ease-out; }
+  .js [data-block] [data-list] li > span { opacity: 0; transform: translateY(8px); transition: opacity .45s ease-out, transform .45s ease-out; }
   [data-block][data-in] [data-list] li > span { opacity: 1; transform: none; }
   [data-line] { display: block; animation: rise .7s ease-out both; }
   /* the four process steps slide in one after another */
-  [data-block] [data-reveal][data-step], [data-reveal][data-step] { opacity: 0; transform: translateX(-38px); transition: opacity .55s ease-out, transform .75s cubic-bezier(.16,.84,.3,1); }
+  .js [data-block] [data-reveal][data-step], .js [data-reveal][data-step] { opacity: 0; transform: translateX(-38px); transition: opacity .55s ease-out, transform .75s cubic-bezier(.16,.84,.3,1); }
   [data-block] [data-reveal][data-step][data-in], [data-reveal][data-step][data-in] { opacity: 1; transform: none; }
 }
 [data-list] li { align-items: flex-start; }
@@ -108,7 +108,8 @@ a:hover [data-arrow] { transform: translateX(4px); }
 .link-ul-deep:hover { border-color: var(--lavender-deep) !important; }
 .marquee-hover:hover [data-marquee] { animation-play-state: paused; }
 </style>
-<script src="site.js" defer></script>
+<script>document.documentElement.classList.add('js')</script>
+<script src="site.js?v=2" defer></script>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-9999px;top:0;padding:12px 18px;background:var(--ink);color:var(--cream);z-index:200" class="skip-link">Skip to content</a>

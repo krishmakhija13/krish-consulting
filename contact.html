@@ -40,9 +40,9 @@ a:hover { color: var(--lavender-deep); }
 :focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; border-radius: 4px; }
 @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: no-preference) {
-  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .55s ease-out, transform .55s ease-out; }
+  .js [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .55s ease-out, transform .55s ease-out; }
   [data-reveal][data-in] { opacity: 1; transform: none; }
-  [data-rule] { transform: scaleX(0); transform-origin: left center; transition: transform .95s cubic-bezier(.16,.84,.3,1) .1s; }
+  .js [data-rule] { transform: scaleX(0); transform-origin: left center; transition: transform .95s cubic-bezier(.16,.84,.3,1) .1s; }
   [data-rule][data-in] { transform: none; }
 }
 [data-arrow] span { display: inline-block; transition: transform .25s cubic-bezier(.16,.84,.3,1); }
@@ -66,7 +66,8 @@ a:hover { color: var(--lavender-deep); }
 .link-ul-deep:hover { border-color: var(--lavender-deep) !important; }
 .marquee-hover:hover [data-marquee] { animation-play-state: paused; }
 </style>
-<script src="site.js" defer></script>
+<script>document.documentElement.classList.add('js')</script>
+<script src="site.js?v=2" defer></script>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
