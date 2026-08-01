@@ -4,14 +4,21 @@
 .env.*.local
 chatbot-backend/.env
 chatbot-backend/.env.local
+chatbot-worker/.env
+chatbot-worker/.env.local
 
 # Dependencies
 node_modules/
 chatbot-backend/node_modules/
+chatbot-worker/node_modules/
 
 # Vercel
 .vercel/
 chatbot-backend/.vercel/
+
+# Wrangler local state (account id cache, local KV simulation)
+.wrangler/
+chatbot-worker/.wrangler/
 
 # OS
 .DS_Store

@@ -1,0 +1,17 @@
+{
+  "name": "krish-consulting-chat-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker proxy for the krish.consulting chat widget",
+  "scripts": {
+    "dev": "wrangler dev",
+    "preview": "node dev-preview.mjs",
+    "test": "node test/validation-tests.mjs",
+    "deploy": "wrangler deploy",
+    "test:prompt": "node test/prompt-tests.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

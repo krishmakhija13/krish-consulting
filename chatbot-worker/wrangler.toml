@@ -1,0 +1,17 @@
+name = "krish-consulting-chat"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# No secrets in this file. Set the key with:
+#   wrangler secret put GEMINI_API_KEY
+
+# Per-IP rate limiting. Namespace ids are not secrets; they identify the
+# namespace but grant no access on their own.
+[[kv_namespaces]]
+binding = "CHAT_RL"
+id = "2b9a6750b4aa4c2e952ee40a14f54fc2"
+
+# EXTRA_ORIGIN is deliberately unset: production accepts only
+# https://krish.consulting and https://www.krish.consulting.
+# For local testing:
+#   wrangler dev --var EXTRA_ORIGIN:http://localhost:4173
